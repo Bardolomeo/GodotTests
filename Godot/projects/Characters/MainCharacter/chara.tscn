@@ -1,7 +1,171 @@
-[gd_scene load_steps=24 format=3 uid="uid://bnaa4cxrj6nd0"]
+[gd_scene load_steps=31 format=3 uid="uid://bnaa4cxrj6nd0"]
 
+[ext_resource type="Script" path="res://Characters/MainCharacter/mainCharacter.gd" id="1_ajqm3"]
 [ext_resource type="Texture2D" uid="uid://by3c2vn1s5otc" path="res://Assets/Soldier.png" id="1_me6j8"]
-[ext_resource type="Script" path="res://Characters/MainCharacter/charaSprite.gd" id="2_ufkvm"]
+[ext_resource type="Script" path="res://Characters/MainCharacter/characterAP.gd" id="2_6ntqu"]
+[ext_resource type="Script" path="res://Characters/MainCharacter/CharacterSprite.gd" id="3_t61fu"]
+[ext_resource type="Script" path="res://Characters/MainCharacter/swordHitbox1.gd" id="4_fuhnj"]
+[ext_resource type="Script" path="res://Characters/MainCharacter/CharacterHurtbox.gd" id="6_k0sss"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5crul"]
+size = Vector2(8.5, 17)
+
+[sub_resource type="Animation" id="Animation_bra1q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("swordCollision:shape:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8.5, 17)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("swordCollision:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(23.4826, -6.97006)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("swordCollision:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.05874]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("swordCollision:shape")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_5crul")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:collision_layer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:collision_mask")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_ebnxs"]
+resource_name = "swordHitbox"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("swordCollision:shape:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(8.5, 17), Vector2(8.5, 37.4652), Vector2(8.5, 35.602)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("swordCollision:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(15.9478, -14.6196), Vector2(30, 5), Vector2(-9.37831, 9.44156)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("swordCollision:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.00929189, 1.93298, 4.54309]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("swordCollision:shape")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_5crul"), SubResource("RectangleShape2D_5crul"), SubResource("RectangleShape2D_5crul")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:collision_layer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1073741824, 1073741826, 1073741824]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:collision_mask")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1073741824, 1073741826, 1073741824]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_js7bm"]
+_data = {
+"RESET": SubResource("Animation_bra1q"),
+"swordHitbox": SubResource("Animation_ebnxs")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ao4tg"]
 atlas = ExtResource("1_me6j8")
@@ -22,6 +186,14 @@ region = Rect2(400, 200, 100, 100)
 [sub_resource type="AtlasTexture" id="AtlasTexture_n1pto"]
 atlas = ExtResource("1_me6j8")
 region = Rect2(500, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvb6k"]
+atlas = ExtResource("1_me6j8")
+region = Rect2(100, 500, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_caiqw"]
+atlas = ExtResource("1_me6j8")
+region = Rect2(200, 500, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4alss"]
 atlas = ExtResource("1_me6j8")
@@ -83,6 +255,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_vvb6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_caiqw")
+}],
+"loop": false,
+"name": &"damage",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_4alss")
 }, {
 "duration": 1.0,
@@ -123,153 +306,63 @@ animations = [{
 radius = 7.33333
 height = 21.3333
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5crul"]
-size = Vector2(8.5, 17)
-
-[sub_resource type="Animation" id="Animation_ebnxs"]
-resource_name = "swordHitbox"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D:shape:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(8.5, 17), Vector2(8.5, 37.4652), Vector2(8.5, 35.602)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(15.9478, -14.6196), Vector2(30, 5), Vector2(-9.37831, 9.44156)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape2D:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-0.00929189, 1.93298, 4.54309]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionShape2D:shape")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [SubResource("RectangleShape2D_5crul"), SubResource("RectangleShape2D_5crul"), SubResource("RectangleShape2D_5crul")]
-}
-
-[sub_resource type="Animation" id="Animation_bra1q"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D:shape:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(8.5, 17)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(23.4826, -6.97006)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape2D:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.05874]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionShape2D:shape")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("RectangleShape2D_5crul")]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_js7bm"]
-_data = {
-"RESET": SubResource("Animation_bra1q"),
-"swordHitbox": SubResource("Animation_ebnxs")
-}
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bbrnr"]
+radius = 11.0
+height = 32.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0j156"]
 
 [node name="CharacterBody" type="RigidBody2D"]
-script = ExtResource("2_ufkvm")
+z_index = 2
+position = Vector2(1, 0)
+collision_layer = 2
+script = ExtResource("1_ajqm3")
 metadata/_edit_group_ = true
+
+[node name="characterAP" type="AnimationPlayer" parent="."]
+root_node = NodePath("../swordHitbox1")
+libraries = {
+"": SubResource("AnimationLibrary_js7bm")
+}
+script = ExtResource("2_6ntqu")
 
 [node name="CharacterSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1.07288e-06)
 scale = Vector2(2.05, 1.83)
 sprite_frames = SubResource("SpriteFrames_56tqv")
-animation = &"attack1"
-frame = 2
-frame_progress = 0.997846
+animation = &"damage"
+frame = 1
+frame_progress = 1.0
+script = ExtResource("3_t61fu")
 
 [node name="CharacterCShape" type="CollisionShape2D" parent="."]
 position = Vector2(1, -3)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("CapsuleShape2D_3atyh")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Area2D")
-libraries = {
-"": SubResource("AnimationLibrary_js7bm")
-}
+[node name="CharacterHurtbox" type="Area2D" parent="."]
+collision_layer = 15
+collision_mask = 15
+collision_priority = 2.0
+script = ExtResource("6_k0sss")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CharacterHurtboxShape" type="CollisionShape2D" parent="CharacterHurtbox"]
+position = Vector2(1, -3)
+shape = SubResource("CapsuleShape2D_bbrnr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="swordHitbox1" type="Area2D" parent="."]
+position = Vector2(0, -4)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_fuhnj")
+
+[node name="swordCollision" type="CollisionShape2D" parent="swordHitbox1"]
 material = SubResource("CanvasItemMaterial_0j156")
 position = Vector2(23.4826, -6.97006)
 rotation = 1.05874
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5crul")
 
-[node name="ColorRect" type="ColorRect" parent="Area2D/CollisionShape2D"]
+[node name="ColorRect" type="ColorRect" parent="swordHitbox1/swordCollision"]
 offset_left = -4.0
 offset_top = -12.0
 offset_right = 4.0

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6b3g3qblh3l8"]
+[gd_scene load_steps=8 format=3 uid="uid://b6b3g3qblh3l8"]
 
 [ext_resource type="PackedScene" uid="uid://bnaa4cxrj6nd0" path="res://Characters/MainCharacter/chara.tscn" id="1_tevmr"]
 [ext_resource type="Texture2D" uid="uid://d32byxyonxibv" path="res://Assets/decor_8x8.png" id="2_wvlvw"]
 [ext_resource type="Texture2D" uid="uid://yb5jfkt1xdbf" path="res://Assets/fences.png" id="3_jcrtf"]
+[ext_resource type="PackedScene" uid="uid://c85gi6mpnovqg" path="res://Characters/enemy/enemy.tscn" id="4_0nb32"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xyhpd"]
 texture = ExtResource("2_wvlvw")
@@ -164,9 +165,10 @@ sources/2 = SubResource("TileSetAtlasSource_rqp2v")
 
 [node name="Main" type="Node2D"]
 
-[node name="RigidBody2D" parent="." instance=ExtResource("1_tevmr")]
-z_index = 1
+[node name="mainChara" parent="." instance=ExtResource("1_tevmr")]
+z_index = 4
 position = Vector2(100, 66)
+collision_layer = 1
 gravity_scale = 0.0
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -178,3 +180,9 @@ layer_0/tile_data = PackedInt32Array(65539, 131073, 1, 65540, 65537, 1, 65541, 1
 layer_1/name = "Foreground"
 layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array()
+
+[node name="enemyBody" parent="." instance=ExtResource("4_0nb32")]
+visibility_layer = 1
+z_index = 2
+position = Vector2(176, 104)
+gravity_scale = 0.0
