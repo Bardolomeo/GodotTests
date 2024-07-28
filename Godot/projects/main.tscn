@@ -167,7 +167,6 @@ sources/2 = SubResource("TileSetAtlasSource_rqp2v")
 
 [node name="mainChara" parent="." instance=ExtResource("1_tevmr")]
 z_index = 4
-position = Vector2(100, 66)
 collision_layer = 1
 gravity_scale = 0.0
 
@@ -182,7 +181,4 @@ layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array()
 
 [node name="enemyBody" parent="." instance=ExtResource("4_0nb32")]
-visibility_layer = 1
-z_index = 2
-position = Vector2(176, 104)
-gravity_scale = 0.0
+position = Vector2(134, 83)

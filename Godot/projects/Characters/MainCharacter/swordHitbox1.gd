@@ -14,5 +14,6 @@ func _process(delta):
 				scale.x = -1
 
 func _on_enemy_hit(body: Node):
-	if body is Enemy:
-		print("enemy hit")
+	#if body is Enemy:
+	#	print("enemy hit")
+	pass
