@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvchxussb5xh4"]
+
+[ext_resource type="Texture2D" uid="uid://cjnics2vnyeq8" path="res://Assets/HUD/hud_heartFull.png" id="1_xrvm5"]
+[ext_resource type="Texture2D" uid="uid://buq8wc1kw7lcx" path="res://Assets/HUD/hud_heartHalf.png" id="2_cbajt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n31jf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xrvm5")
+}],
+"loop": false,
+"name": &"full_hearth",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cbajt")
+}],
+"loop": true,
+"name": &"half_hearth",
+"speed": 5.0
+}]
+
+[node name="singleHearth" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_n31jf")
+animation = &"full_hearth"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl0cx0qeuj6im"
-path="res://.godot/imported/Orc.png-3c2fb7cc9f97a22f44775f8474951242.ctex"
+uid="uid://by3c2vn1s5otc"
+path="res://.godot/imported/Soldier.png-eeff34142f98db50e39c4301e1335310.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Orc.png"
-dest_files=["res://.godot/imported/Orc.png-3c2fb7cc9f97a22f44775f8474951242.ctex"]
+source_file="res://Assets/Player/Soldier.png"
+dest_files=["res://.godot/imported/Soldier.png-eeff34142f98db50e39c4301e1335310.ctex"]
 
 [params]
 

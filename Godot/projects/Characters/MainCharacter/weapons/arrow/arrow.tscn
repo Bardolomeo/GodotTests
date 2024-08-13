@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dionmurdx1pvm"]
+
+[ext_resource type="Script" path="res://Characters/MainCharacter/weapons/arrow/arrow.gd" id="1_8i2o0"]
+[ext_resource type="Script" path="res://Characters/MainCharacter/weapons/arrow/arrowHitbox1.gd" id="2_y3dwo"]
+[ext_resource type="Texture2D" uid="uid://dpt5yr6r8j6ji" path="res://Assets/Player/Arrow01(32x32).png" id="3_bh5i0"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0j156"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5crul"]
+size = Vector2(19, 11)
+
+[node name="arrow" type="Node2D"]
+script = ExtResource("1_8i2o0")
+weaponDamage = 5
+
+[node name="arrowHitbox" type="Area2D" parent="."]
+position = Vector2(0, -4)
+collision_mask = 2
+script = ExtResource("2_y3dwo")
+
+[node name="arrowCollision" type="CollisionShape2D" parent="arrowHitbox"]
+material = SubResource("CanvasItemMaterial_0j156")
+position = Vector2(0.5, 4.5)
+shape = SubResource("RectangleShape2D_5crul")
+
+[node name="ColorRect" type="ColorRect" parent="arrowHitbox/arrowCollision"]
+visible = false
+offset_left = -4.0
+offset_top = -12.0
+offset_right = 4.0
+offset_bottom = 14.0
+scale = Vector2(1.05274, 1)
+color = Color(1, 0.342667, 0.62071, 0.627451)
+
+[node name="arrowSprite" type="Sprite2D" parent="."]
+texture = ExtResource("3_bh5i0")

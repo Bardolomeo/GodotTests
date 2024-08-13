@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://4yqi5o1yb1jx"]
+
+[ext_resource type="Script" path="res://Characters/MainCharacter/weapons/sword/sword.gd" id="1_xyo6t"]
+[ext_resource type="Script" path="res://Characters/MainCharacter/weapons/sword/swordHitbox1.gd" id="2_nbfrc"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0j156"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5crul"]
+size = Vector2(8.5, 17)
+
+[node name="sword" type="Node2D"]
+script = ExtResource("1_xyo6t")
+
+[node name="swordHitbox1" type="Area2D" parent="."]
+position = Vector2(0, -4)
+collision_mask = 2
+script = ExtResource("2_nbfrc")
+
+[node name="swordCollision" type="CollisionShape2D" parent="swordHitbox1"]
+material = SubResource("CanvasItemMaterial_0j156")
+position = Vector2(23.4826, -6.97006)
+rotation = 1.05874
+shape = SubResource("RectangleShape2D_5crul")
+disabled = true
+
+[node name="ColorRect" type="ColorRect" parent="swordHitbox1/swordCollision"]
+offset_left = -4.0
+offset_top = -12.0
+offset_right = 4.0
+offset_bottom = 14.0
+scale = Vector2(1.05274, 1)
+color = Color(1, 0.342667, 0.62071, 0.627451)

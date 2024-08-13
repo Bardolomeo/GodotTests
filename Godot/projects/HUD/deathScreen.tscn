@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://ceynl7xmfqa2w"]
+
+[ext_resource type="FontFile" uid="uid://clbkq8eh3tnhc" path="res://Assets/Fonts/Ruritania.ttf" id="1_1e5l6"]
+[ext_resource type="Script" path="res://HUD/deathScreen.gd" id="1_itukw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qo45u"]
+font = ExtResource("1_1e5l6")
+font_size = 40
+
+[sub_resource type="Animation" id="Animation_ev5lx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fw6se"]
+resource_name = "Text"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_emjh4"]
+_data = {
+"RESET": SubResource("Animation_ev5lx"),
+"Text": SubResource("Animation_fw6se")
+}
+
+[node name="Node2D" type="Node2D"]
+z_index = 10
+script = ExtResource("1_itukw")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 99.0
+offset_bottom = 58.0
+scale = Vector2(0.8, 0.8)
+text = "Death has come"
+label_settings = SubResource("LabelSettings_qo45u")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.715, 16.2011)
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_emjh4")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(2, 2)

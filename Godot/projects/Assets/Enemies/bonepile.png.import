@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d32byxyonxibv"
-path="res://.godot/imported/decor_8x8.png-778ab3eb415e74f19b2cdf00be1b460f.ctex"
+uid="uid://ddp4vg10mvfqt"
+path="res://.godot/imported/bonepile.png-e2dfa1f6b7d5c5a1603887ad107adaf0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/decor_8x8.png"
-dest_files=["res://.godot/imported/decor_8x8.png-778ab3eb415e74f19b2cdf00be1b460f.ctex"]
+source_file="res://Assets/Enemies/bonepile.png"
+dest_files=["res://.godot/imported/bonepile.png-e2dfa1f6b7d5c5a1603887ad107adaf0.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yb5jfkt1xdbf"
-path="res://.godot/imported/fences.png-e585aa48c96deee55afa813f5263acb2.ctex"
+uid="uid://bg53ufm8yuora"
+path="res://.godot/imported/hud_heartEmpty.png-85b80fcd2d284c3a6eeb101fc3ada907.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/fences.png"
-dest_files=["res://.godot/imported/fences.png-e585aa48c96deee55afa813f5263acb2.ctex"]
+source_file="res://Assets/HUD/hud_heartEmpty.png"
+dest_files=["res://.godot/imported/hud_heartEmpty.png-85b80fcd2d284c3a6eeb101fc3ada907.ctex"]
 
 [params]
 

@@ -2,8 +2,7 @@ extends CollisionShape2D
 
 
 func _ready():
-	connect()
-
+	pass
 
 func _process(delta):
-	
+	pass

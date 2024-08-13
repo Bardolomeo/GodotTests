@@ -1,13 +1,13 @@
-class_name PlayerWeapon extends Area2D
+extends PlayerWeapon
 
-var is_enemy = $".".is_enemy
 func _ready():
-	body_entered.connect(_on_enemy_hit)
-	$swordCollision.disabled = true
+	hitboxArea = $swordHitbox1
+	hitboxShape = $swordHitbox1/swordCollision
+	hitboxArea.visible = false
 
 func _process(delta):
 	if Input.is_action_pressed("LeftButton") && !$"..".is_hurt:
-			$swordCollision.disabled = false
+			hitboxShape.disabled = false
 			if $"../CharacterSprite".flip_h == false:
 				scale.x = 1
 			else:

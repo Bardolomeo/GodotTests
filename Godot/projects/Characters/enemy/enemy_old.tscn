@@ -1,3 +1,9 @@
+<<<<<<< Updated upstream
+[gd_scene load_steps=30 format=3 uid="uid://c85gi6mpnovqg"]
+
+[ext_resource type="Script" path="res://Characters/enemy/enemyBody.gd" id="1_85cxx"]
+[ext_resource type="Texture2D" uid="uid://bl0cx0qeuj6im" path="res://Assets/Orc.png" id="3_unxck"]
+=======
 [gd_scene load_steps=42 format=3 uid="uid://c85gi6mpnovqg"]
 
 [ext_resource type="Script" path="res://Characters/enemy/enemy.gd" id="1_y7oei"]
@@ -13,6 +19,7 @@ bounce = 1.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_csqip"]
 radius = 13.0
 height = 38.0
+>>>>>>> Stashed changes
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5emb2"]
 atlas = ExtResource("3_unxck")
@@ -38,6 +45,8 @@ region = Rect2(400, 200, 100, 100)
 atlas = ExtResource("3_unxck")
 region = Rect2(500, 200, 100, 100)
 
+<<<<<<< Updated upstream
+=======
 [sub_resource type="AtlasTexture" id="AtlasTexture_gdqbr"]
 atlas = ExtResource("3_unxck")
 region = Rect2(100, 400, 100, 100)
@@ -62,6 +71,7 @@ region = Rect2(200, 500, 100, 100)
 atlas = ExtResource("3_unxck")
 region = Rect2(300, 500, 100, 100)
 
+>>>>>>> Stashed changes
 [sub_resource type="AtlasTexture" id="AtlasTexture_q8u0j"]
 atlas = ExtResource("3_unxck")
 region = Rect2(100, 0, 100, 100)
@@ -159,6 +169,8 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+<<<<<<< Updated upstream
+=======
 "texture": SubResource("AtlasTexture_gdqbr")
 }, {
 "duration": 1.0,
@@ -202,6 +214,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+>>>>>>> Stashed changes
 "texture": SubResource("AtlasTexture_q8u0j")
 }, {
 "duration": 1.0,
@@ -540,12 +553,16 @@ _data = {
 [node name="enemyBody" type="RigidBody2D"]
 z_index = 10
 collision_layer = 2
+<<<<<<< Updated upstream
+script = ExtResource("1_85cxx")
+=======
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_25o7i")
 gravity_scale = 0.0
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_y7oei")
+>>>>>>> Stashed changes
 metadata/_edit_group_ = true
 
 [node name="enemyBodyShape" type="CollisionShape2D" parent="."]
@@ -556,6 +573,28 @@ shape = SubResource("CapsuleShape2D_csqip")
 position = Vector2(0, -1.07288e-06)
 scale = Vector2(2.05, 1.83)
 sprite_frames = SubResource("SpriteFrames_56tqv")
+<<<<<<< Updated upstream
+animation = &"attack1"
+
+[node name="enemyAP" type="AnimationPlayer" parent="."]
+root_node = NodePath("../axeHitbox1")
+libraries = {
+"": SubResource("AnimationLibrary_js7bm")
+}
+
+[node name="Timer" type="Timer" parent="enemyAP"]
+one_shot = true
+
+[node name="enemyCShape" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -3)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CapsuleShape2D_3atyh")
+
+[node name="axeHitbox1" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 2147483648
+=======
 animation = &"death"
 script = ExtResource("4_wsbbw")
 
@@ -563,6 +602,7 @@ script = ExtResource("4_wsbbw")
 collision_layer = 2147483650
 collision_mask = 2147483649
 script = ExtResource("5_gfo0u")
+>>>>>>> Stashed changes
 
 [node name="axeShape" type="CollisionShape2D" parent="axeArea"]
 visible = false
@@ -582,12 +622,19 @@ color = Color(1, 0.342667, 0.62071, 0.627451)
 
 [node name="EnemyHurtbox" type="Area2D" parent="."]
 position = Vector2(-2, 0)
+<<<<<<< Updated upstream
+collision_layer = 3
+collision_mask = 3
+=======
 collision_layer = 2
 script = ExtResource("6_kohm7")
+>>>>>>> Stashed changes
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtbox"]
 position = Vector2(5, -2)
 shape = SubResource("CapsuleShape2D_csqip")
+<<<<<<< Updated upstream
+=======
 
 [node name="triggerAttackRadius" type="Area2D" parent="."]
 collision_layer = 2
@@ -613,3 +660,4 @@ avoidance_enabled = true
 radius = 47.74
 
 [connection signal="velocity_computed" from="enemyNavigationAgent" to="." method="_on_enemy_navigation_agent_velocity_computed"]
+>>>>>>> Stashed changes
