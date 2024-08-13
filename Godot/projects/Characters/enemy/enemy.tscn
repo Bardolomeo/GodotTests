@@ -1,11 +1,7 @@
-[gd_scene load_steps=34 format=3 uid="uid://c85gi6mpnovqg"]
+[gd_scene load_steps=30 format=3 uid="uid://c85gi6mpnovqg"]
 
-[ext_resource type="Script" path="res://Characters/enemy/enemy.gd" id="1_y7oei"]
-[ext_resource type="Script" path="res://Characters/enemy/enemyAP.gd" id="2_6wpbi"]
+[ext_resource type="Script" path="res://Characters/enemy/enemyBody.gd" id="1_85cxx"]
 [ext_resource type="Texture2D" uid="uid://bl0cx0qeuj6im" path="res://Assets/Orc.png" id="3_unxck"]
-[ext_resource type="Script" path="res://Characters/enemy/enemySprite.gd" id="4_wsbbw"]
-[ext_resource type="Script" path="res://Characters/enemy/axeHitbox1.gd" id="5_gfo0u"]
-[ext_resource type="Script" path="res://Characters/enemy/EnemyHurtbox.gd" id="6_kohm7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5emb2"]
 atlas = ExtResource("3_unxck")
@@ -31,14 +27,6 @@ region = Rect2(400, 200, 100, 100)
 atlas = ExtResource("3_unxck")
 region = Rect2(500, 200, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gdqbr"]
-atlas = ExtResource("3_unxck")
-region = Rect2(100, 400, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iu60m"]
-atlas = ExtResource("3_unxck")
-region = Rect2(200, 400, 100, 100)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_q8u0j"]
 atlas = ExtResource("3_unxck")
 region = Rect2(100, 0, 100, 100)
@@ -54,6 +42,14 @@ region = Rect2(300, 0, 100, 100)
 [sub_resource type="AtlasTexture" id="AtlasTexture_41061"]
 atlas = ExtResource("3_unxck")
 region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdqbr"]
+atlas = ExtResource("3_unxck")
+region = Rect2(100, 400, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu60m"]
+atlas = ExtResource("3_unxck")
+region = Rect2(200, 400, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x3wob"]
 atlas = ExtResource("3_unxck")
@@ -110,17 +106,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gdqbr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iu60m")
-}],
-"loop": false,
-"name": &"damage",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_q8u0j")
 }, {
 "duration": 1.0,
@@ -135,6 +120,17 @@ animations = [{
 "loop": false,
 "name": &"default",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdqbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu60m")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -409,23 +405,23 @@ height = 34.0
 visibility_layer = 4
 position = Vector2(0, -2)
 collision_layer = 2
-script = ExtResource("1_y7oei")
+script = ExtResource("1_85cxx")
 metadata/_edit_group_ = true
 
 [node name="enemySprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1.07288e-06)
 scale = Vector2(2.05, 1.83)
 sprite_frames = SubResource("SpriteFrames_56tqv")
-animation = &"damage"
-frame_progress = 0.396259
-script = ExtResource("4_wsbbw")
+animation = &"attack1"
 
 [node name="enemyAP" type="AnimationPlayer" parent="."]
 root_node = NodePath("../axeHitbox1")
 libraries = {
 "": SubResource("AnimationLibrary_js7bm")
 }
-script = ExtResource("2_6wpbi")
+
+[node name="Timer" type="Timer" parent="enemyAP"]
+one_shot = true
 
 [node name="enemyCShape" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -3)
@@ -436,7 +432,6 @@ shape = SubResource("CapsuleShape2D_3atyh")
 visible = false
 collision_layer = 4
 collision_mask = 2147483648
-script = ExtResource("5_gfo0u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="axeHitbox1"]
 material = SubResource("CanvasItemMaterial_0j156")
@@ -456,11 +451,7 @@ color = Color(1, 0.342667, 0.62071, 0.627451)
 position = Vector2(-2, 0)
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("6_kohm7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtbox"]
 position = Vector2(1, -3)
 shape = SubResource("CapsuleShape2D_csqip")
-
-[connection signal="animation_finished" from="enemySprite" to="." method="_on_character_sprite_animation_finished"]
-[connection signal="animation_looped" from="enemySprite" to="." method="_on_enemy_sprite_animation_looped"]
