@@ -9,6 +9,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	delta = delta
 	if player.has_bow:
 		play("arrow")
 		ammoCount.visible = true

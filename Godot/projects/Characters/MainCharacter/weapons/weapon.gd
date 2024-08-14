@@ -8,6 +8,7 @@ func _ready():
 	hitboxArea.visible = false
 
 func _process(delta):
+	delta = delta
 	if Input.is_action_pressed("LeftButton") && !$"..".is_hurt:
 			hitboxShape.disabled = false
 			if $"../CharacterSprite".flip_h == false:

@@ -4,6 +4,3 @@ class_name EnemyWeapon extends Area2D
 
 func _ready():
 	pass
-	
-func _on_axe_collision(body: Node):
-	pass

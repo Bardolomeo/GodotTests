@@ -48,21 +48,16 @@ func movement(delta):
 		move_and_collide(Vector2(1,0) * delta * velocity)
 
 func ranged_attack():
-	is_busy = true
 	var mousePos = get_global_mouse_position()
 	if mousePos.x < global_position.x:
 		charaSprite.flip_h = true
 	else:
 		charaSprite.flip_h = false
 	if munitions > 0:
+		is_busy = true
 		arrow = arrowScene.instantiate()
 		charaSprite.play("ranged")
 		munitions -= 1
-	else:
-		charaSprite.play("ranged_no_ammo")
-
-func _on_character_sprite_animation_looped():
-	charaSprite.play("default")
 	
 func _on_hurtbox_entered(area : Area2D):
 	if area is EnemyWeapon:
@@ -77,14 +72,11 @@ func _on_chara_sprite_animation_finished(anim_name):
 			"damage":
 				set_deferred("is_hurt", false)
 				set_deferred("is_busy", false)
-				charaSprite.play("default")
 			"ranged":
 				set_deferred("is_busy", false)
-				charaSprite.play("default")
-				add_child(arrow)
-			"ranged_no_ammo":
-				set_deferred("is_busy", false)
-				charaSprite.play("default")
+				$"..".add_child(arrow)
+	charaSprite.play("default")
+				
 
 func _on_chara_AP_finished(old_anim):
 	match old_anim:

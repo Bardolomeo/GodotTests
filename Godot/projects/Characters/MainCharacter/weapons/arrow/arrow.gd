@@ -4,15 +4,16 @@ var mouse_pos := Vector2.ZERO
 var count := 0
 var viewportSize : Vector2
 var direction
-@export var speed = 400
+@export var speed = 600
 
 func _ready():
+	position = $"../mainChara".position
 	hitboxArea = $arrowHitbox
 	hitboxShape = $arrowHitbox/arrowCollision
-	var charaSprite = $"../CharacterSprite"
 	weaponDamage = 5
 	hitboxArea.visible = false
-	direction = position.direction_to(get_local_mouse_position())
+	mouse_pos = get_global_mouse_position()
+	direction = position.direction_to(mouse_pos)
 	rotation = get_local_mouse_position().angle()
 	
 func _process(delta):

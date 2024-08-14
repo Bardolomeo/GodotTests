@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://dionmurdx1pvm"]
+
+[ext_resource type="Script" path="res://Characters/enemy/TNT/projectile/tnt_projectile.gd" id="1_g7js0"]
+[ext_resource type="Script" path="res://Characters/enemy/TNT/projectile/dynamiteHitbox.gd" id="2_rc4pj"]
+[ext_resource type="Texture2D" uid="uid://cf3sv6j1a2s0l" path="res://Assets/Enemies/Dynamite.png" id="3_nnpsr"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0j156"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5crul"]
+size = Vector2(19, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwdmd"]
+atlas = ExtResource("3_nnpsr")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63eaf"]
+atlas = ExtResource("3_nnpsr")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gafs"]
+atlas = ExtResource("3_nnpsr")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pjdj"]
+atlas = ExtResource("3_nnpsr")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouf0h"]
+atlas = ExtResource("3_nnpsr")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfa3j"]
+atlas = ExtResource("3_nnpsr")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_enuc5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwdmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63eaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gafs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pjdj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouf0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfa3j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="dynamite" type="Node2D"]
+script = ExtResource("1_g7js0")
+
+[node name="dynamiteHitbox" type="Area2D" parent="."]
+position = Vector2(0, -4)
+collision_layer = 2
+script = ExtResource("2_rc4pj")
+
+[node name="dynamiteCollision" type="CollisionShape2D" parent="dynamiteHitbox"]
+material = SubResource("CanvasItemMaterial_0j156")
+position = Vector2(0.5, 4.5)
+rotation = -1.12874
+shape = SubResource("RectangleShape2D_5crul")
+
+[node name="ColorRect" type="ColorRect" parent="dynamiteHitbox/dynamiteCollision"]
+visible = false
+offset_left = -4.0
+offset_top = -12.0
+offset_right = 4.0
+offset_bottom = 14.0
+scale = Vector2(1.05274, 1)
+color = Color(1, 0.342667, 0.62071, 0.627451)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_enuc5")
+frame_progress = 0.624443
